@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-gamify": {
+      "projectType": "library",
+      "root": "projects/ngx-gamify",
+      "sourceRoot": "projects/ngx-gamify/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-gamify/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-gamify/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-gamify/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-gamify/src/test.ts",
+            "tsConfig": "projects/ngx-gamify/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-gamify/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-gamify"
 }
